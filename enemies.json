@@ -1,0 +1,57 @@
+[
+    {
+        "atk": 1,
+        "hp": 10,
+		"options": ["ATT = 4", "ATT = 10", "ATT = 7", "ATT = 1", "ATT = 3"],
+		"sprite": "res://Assets/Enemies/enemy1.png"
+    },
+	
+	{
+        "atk": 2,
+        "hp": 10,
+		"options": ["ATT = ATT + 3", "ATT = ATT + 9", "ATT = ATT + 1", "ATT = ATT - 4", "ATT = ATT + 4"],
+		"sprite": "res://Assets/Enemies/enemy2.png"
+    },
+	
+	{
+        "atk": 3,
+        "hp": 9,
+		"options": ["ATT = ATT * 2", "ATT = ATT + 1", "ATT = ATT + 3", "ATT = ATT - 1", "ATT = ATT + 2"],
+		"sprite": "res://Assets/Enemies/enemy3.png"
+    },
+	
+	{
+        "atk": 3,
+        "hp": 7,
+		"options": ["ATT = ATT * 2", "ATT = ATT + 1", "ATT = ATT + 3", "ATT = ATT - 1", "ATT = ATT + 2"],
+		"sprite": "res://Assets/Enemies/enemy5.png"
+    },
+	
+	{
+        "atk": 3,
+        "hp": 13,
+		"options": ["ATT = ATT * 2", "ATT = ATT + 1", "ATT = ATT + 3", "ATT = ATT - 1", "ATT = ATT + 2"],
+		"sprite": "res://Assets/Enemies/enemy7.png"
+    },
+    
+	{
+        "atk": 3,
+        "hp": 19,
+		"options": ["ATT = ATT - 10", "ATT = ATT / 2", "ATT = ATT + 30", "ATT = ATT + 3", "ATT = ATT * 2"],
+		"sprite": "res://Assets/Enemies/enemy4.png"
+    },
+	
+	{
+        "atk": 3,
+        "hp": 25,
+		"options": ["ATT = ATT - 10", "ATT = ATT / 2", "ATT = ATT + 30", "ATT = ATT + 3", "ATT = ATT * 2"],
+		"sprite": "res://Assets/Enemies/enemy6.png"
+    },
+	
+	{
+        "atk": 3,
+        "hp": 14,
+		"options": ["ATT = ATT - 10", "ATT = ATT / 2", "ATT = ATT + 30", "ATT = ATT + 3", "ATT = ATT * 2"],
+		"sprite": "res://Assets/Enemies/enemy8.png"
+    }
+]

@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Assets/TileMaps/Village/House_6.png" type="Texture" id=1]
+[ext_resource path="res://Assets/TileMaps/Village/House_4.png" type="Texture" id=2]
+[ext_resource path="res://Assets/TileMaps/Village/firsthouse.png" type="Texture" id=3]
+
+[node name="Tileset" type="Node2D"]
+
+[node name="House" type="Sprite" parent="."]
+position = Vector2( 200, 250 )
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 64, 16, 368, 480 )
+
+[node name="House2" type="Sprite" parent="."]
+position = Vector2( 610.471, 254.003 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 360, 512 )
+
+[node name="House3" type="Sprite" parent="."]
+position = Vector2( 1004.94, 247.522 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 80, 8, 352, 496 )

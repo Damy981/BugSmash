@@ -1,0 +1,248 @@
+[gd_scene load_steps=34 format=2]
+
+[ext_resource path="res://Assets/TileMaps/Interiors/Interiors.res" type="TileSet" id=1]
+[ext_resource path="res://Scripts/Character/SetStartAnimation.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/Character/Player.gd" type="Script" id=3]
+[ext_resource path="res://Assets/Characters/Male/walk_left_boy_sx.png.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Characters/Female/stand_left_girl.png.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Characters/Female/stand_up_girl.png.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Characters/Male/stand_down_boy.png.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Characters/Female/walk_down_girl_sx.png.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Characters/Female/walk_left_girl_sx.png.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Characters/Male/walk_left_boy_dx.png.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Characters/Female/walk_up_girl_sx.png.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Characters/Male/walk_down_boy_sx.png.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Characters/Male/stand_up_boy.png.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Characters/Female/stand_down_girl.png.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Characters/Female/walk_up_girl_dx.png.png" type="Texture" id=15]
+[ext_resource path="res://Assets/Characters/Male/walk_up_boy_sx.png.png" type="Texture" id=16]
+[ext_resource path="res://Assets/Characters/Male/stand_left_boy.png.png" type="Texture" id=17]
+[ext_resource path="res://Assets/Characters/Female/walk_down_girl_dx.png.png" type="Texture" id=18]
+[ext_resource path="res://Assets/Characters/Male/walk_up_boy_dx.png.png" type="Texture" id=19]
+[ext_resource path="res://Assets/Characters/Female/walk_left_girl_dx.png.png" type="Texture" id=20]
+[ext_resource path="res://Assets/Characters/Male/walk_down_boy_dx.png.png" type="Texture" id=21]
+[ext_resource path="res://addons/blocking_dialog_box/blocking_dialog_box.gd" type="Script" id=22]
+[ext_resource path="res://Audio/Musics/village_background.wav" type="AudioStream" id=23]
+[ext_resource path="res://Scripts/PauseMenu/TogglePauseMenu.gd" type="Script" id=24]
+[ext_resource path="res://Scripts/Inn/Inn_Exit.gd" type="Script" id=25]
+[ext_resource path="res://Assets/Characters/Innkeeper.png" type="Texture" id=26]
+[ext_resource path="res://Scripts/Inn/InnKeeper.gd" type="Script" id=27]
+[ext_resource path="res://Scripts/Inn/ConfirmationDialogInn.gd" type="Script" id=28]
+[ext_resource path="res://Audio/Sounds/sleep_sound.wav" type="AudioStream" id=29]
+[ext_resource path="res://Assets/TabletMenu.png" type="Texture" id=30]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 21.9761, 9.9187 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 60.7462, 72.4818 )
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 15 ), ExtResource( 6 ), ExtResource( 11 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "female_walk_up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 17 ), ExtResource( 10 ), ExtResource( 17 ) ],
+"loop": true,
+"name": "male_walk_left",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "male_stand_down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ) ],
+"loop": true,
+"name": "male_stand_up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 20 ), ExtResource( 5 ), ExtResource( 9 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "female_walk_left",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ), ExtResource( 14 ), ExtResource( 18 ), ExtResource( 14 ) ],
+"loop": true,
+"name": "female_walk_down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 17 ) ],
+"loop": true,
+"name": "male_stand_left",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ), ExtResource( 7 ), ExtResource( 21 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "male_walk_down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "female_stand_up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "female_stand_left",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 14 ) ],
+"loop": true,
+"name": "female_stand_down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 16 ), ExtResource( 13 ), ExtResource( 19 ), ExtResource( 13 ) ],
+"loop": true,
+"name": "male_walk_up",
+"speed": 5.0
+} ]
+
+[node name="Inn" type="Node2D"]
+script = ExtResource( 24 )
+
+[node name="TileMap_Floor" type="TileMap" parent="."]
+scale = Vector2( 2, 2 )
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 32, 32 )
+format = 1
+tile_data = PoolIntArray( 0, 40, 0, 1, 41, 0, 2, 41, 0, 3, 41, 0, 4, 41, 0, 5, 41, 0, 6, 41, 0, 7, 41, 0, 8, 41, 0, 9, 41, 0, 10, 41, 0, 11, 41, 0, 12, 41, 0, 13, 41, 0, 14, 41, 0, 15, 41, 0, 16, 41, 0, 17, 41, 0, 18, 41, 0, 19, 41, 0, 20, 42, 0, 65536, 43, 0, 65537, 36, 0, 65538, 36, 0, 65539, 36, 0, 65540, 36, 0, 65541, 36, 0, 65542, 36, 0, 65543, 36, 0, 65544, 36, 0, 65545, 36, 0, 65546, 36, 0, 65547, 36, 0, 65548, 36, 0, 65549, 36, 0, 65550, 36, 0, 65551, 36, 0, 65552, 36, 0, 65553, 36, 0, 65554, 51, 0, 65555, 52, 0, 65556, 44, 0, 131072, 43, 0, 131073, 36, 0, 131074, 36, 0, 131075, 36, 0, 131076, 36, 0, 131077, 36, 0, 131078, 36, 0, 131079, 36, 0, 131080, 36, 0, 131081, 36, 0, 131082, 36, 0, 131083, 36, 0, 131084, 36, 0, 131085, 36, 0, 131086, 36, 0, 131087, 36, 0, 131088, 36, 0, 131089, 36, 0, 131090, 53, 0, 131091, 54, 0, 131092, 44, 0, 196608, 43, 0, 196609, 37, 0, 196610, 37, 0, 196611, 37, 0, 196612, 37, 0, 196613, 37, 0, 196614, 37, 0, 196615, 37, 0, 196616, 37, 0, 196617, 37, 0, 196618, 37, 0, 196619, 37, 0, 196620, 37, 0, 196621, 37, 0, 196622, 37, 0, 196623, 37, 0, 196624, 37, 0, 196625, 37, 0, 196626, 53, 0, 196627, 54, 0, 196628, 44, 0, 262144, 43, 0, 262145, 11, 0, 262146, 11, 0, 262147, 11, 0, 262148, 11, 0, 262149, 11, 0, 262150, 11, 0, 262151, 11, 0, 262152, 11, 0, 262153, 11, 0, 262154, 11, 0, 262155, 11, 0, 262156, 11, 0, 262157, 11, 0, 262158, 11, 0, 262159, 11, 0, 262160, 11, 0, 262161, 11, 0, 262162, 53, 0, 262163, 54, 0, 262164, 44, 0, 327680, 43, 0, 327681, 11, 0, 327682, 11, 0, 327683, 11, 0, 327684, 11, 0, 327685, 11, 0, 327686, 11, 0, 327687, 11, 0, 327688, 11, 0, 327689, 11, 0, 327690, 11, 0, 327691, 11, 0, 327692, 11, 0, 327693, 11, 0, 327694, 11, 0, 327695, 11, 0, 327696, 11, 0, 327697, 11, 0, 327698, 11, 0, 327699, 11, 0, 327700, 44, 0, 393216, 43, 0, 393217, 11, 0, 393218, 11, 0, 393219, 11, 0, 393220, 11, 0, 393221, 11, 0, 393222, 11, 0, 393223, 11, 0, 393224, 11, 0, 393225, 11, 0, 393226, 11, 0, 393227, 11, 0, 393228, 11, 0, 393229, 11, 0, 393230, 11, 0, 393231, 11, 0, 393232, 11, 0, 393233, 11, 0, 393234, 11, 0, 393235, 11, 0, 393236, 44, 0, 458752, 43, 0, 458753, 11, 0, 458754, 11, 0, 458755, 11, 0, 458756, 11, 0, 458757, 11, 0, 458758, 11, 0, 458759, 11, 0, 458760, 11, 0, 458761, 11, 0, 458762, 11, 0, 458763, 11, 0, 458764, 11, 0, 458765, 11, 0, 458766, 11, 0, 458767, 11, 0, 458768, 11, 0, 458769, 11, 0, 458770, 11, 0, 458771, 11, 0, 458772, 44, 0, 524288, 43, 0, 524289, 11, 0, 524290, 11, 0, 524291, 11, 0, 524292, 11, 0, 524293, 11, 0, 524294, 11, 0, 524295, 11, 0, 524296, 11, 0, 524297, 11, 0, 524298, 11, 0, 524299, 11, 0, 524300, 11, 0, 524301, 11, 0, 524302, 11, 0, 524303, 11, 0, 524304, 11, 0, 524305, 11, 0, 524306, 11, 0, 524307, 11, 0, 524308, 44, 0, 589824, 43, 0, 589825, 11, 0, 589826, 11, 0, 589827, 11, 0, 589828, 11, 0, 589829, 11, 0, 589830, 11, 0, 589831, 11, 0, 589832, 11, 0, 589833, 11, 0, 589834, 11, 0, 589835, 11, 0, 589836, 11, 0, 589837, 11, 0, 589838, 11, 0, 589839, 11, 0, 589840, 11, 0, 589841, 11, 0, 589842, 11, 0, 589843, 11, 0, 589844, 44, 0, 655360, 45, 0, 655361, 46, 0, 655362, 46, 0, 655363, 46, 0, 655364, 46, 0, 655365, 46, 0, 655366, 46, 0, 655367, 46, 0, 655368, 46, 0, 655369, 46, 0, 655370, 46, 0, 655371, 46, 0, 655372, 46, 0, 655373, 46, 0, 655374, 46, 0, 655375, 46, 0, 655376, 47, 0, 655377, 45, 0, 655378, 46, 0, 655379, 46, 0, 655380, 47, 0 )
+
+[node name="Inn_Exit" type="Area2D" parent="TileMap_Floor"]
+position = Vector2( 862.675, 208.885 )
+scale = Vector2( 0.5, 0.5 )
+script = ExtResource( 25 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap_Floor/Inn_Exit"]
+position = Vector2( -634.576, 239.62 )
+shape = SubResource( 1 )
+
+[node name="TileMap_Objects" type="TileMap" parent="."]
+scale = Vector2( 2, 2 )
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 32, 32 )
+format = 1
+tile_data = PoolIntArray( 65537, 20, 0, 65540, 19, 0, 65543, 19, 0, 65546, 19, 0, 65549, 20, 0, 65552, 19, 0, 131075, 63, 0, 131080, 55, 0, 131086, 55, 0, 131089, 25, 0, 196609, 21, 0, 196610, 22, 0, 196611, 7, 0, 196612, 62, 0, 196613, 55, 0, 196614, 55, 0, 196615, 61, 0, 196616, 1, 0, 196621, 68, 0, 196622, 4, 0, 196623, 55, 0, 196624, 55, 0, 196625, 26, 0, 262145, 23, 0, 262146, 24, 0, 262147, 8, 0, 262148, 57, 0, 262149, 18, 0, 262150, 18, 0, 262151, 8, 0, 262152, 57, 0, 262157, 69, 0, 262158, 57, 0, 262159, 57, 0, 262160, 57, 0, 262161, 27, 0, 262162, 73, 0, 262163, 74, 0, 327682, 12, 0, 327683, 14, 0, 327684, 13, 0, 327691, 15, 0, 327692, 16, 0, 327693, 64, 0, 327694, 66, 0, 393222, 12, 0, 393223, 14, 0, 393224, 13, 0, 393227, 17, 0, 393228, 18, 0, 393229, 18, 0, 393230, 65, 0, 458753, 12, 0, 458754, 14, 0, 458755, 13, 0, 458761, 67, 0, 458771, 67, 0, 524294, 12, 0, 524295, 14, 0, 524296, 13, 0, 524297, 70, 0, 524303, 28, 0, 524304, 29, 0, 524305, 29, 0, 524306, 30, 0, 524307, 70, 0, 589826, 12, 0, 589827, 14, 0, 589828, 13, 0, 589833, 69, 0, 589839, 31, 0, 589840, 32, 0, 589841, 32, 0, 589842, 33, 0, 589843, 69, 0 )
+
+[node name="InnKeeper" type="StaticBody2D" parent="."]
+scale = Vector2( 1.0148, 0.99488 )
+script = ExtResource( 27 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InnKeeper"]
+position = Vector2( 821.577, 357.51 )
+shape = SubResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="InnKeeper"]
+position = Vector2( 804.099, 313.606 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 26 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[node name="Player" type="KinematicBody2D" parent="."]
+position = Vector2( 1086.21, 577.003 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Player"]
+position = Vector2( 4.43762, -2.55774 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 3 )
+animation = "male_stand_up"
+script = ExtResource( 2 )
+
+[node name="PauseMenu" type="Control" parent="Player"]
+pause_mode = 2
+margin_left = -517.429
+margin_top = -293.958
+margin_right = -477.429
+margin_bottom = -253.958
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="TextureRect" parent="Player/PauseMenu"]
+margin_left = 335.219
+margin_top = 84.955
+margin_right = 688.219
+margin_bottom = 356.955
+texture = ExtResource( 30 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Player/PauseMenu/ColorRect"]
+margin_left = -34.0
+margin_top = -133.0
+margin_right = 286.0
+margin_bottom = 115.0
+rect_scale = Vector2( 0.8, 0.8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Player"]
+position = Vector2( 4.90246, 22.1211 )
+scale = Vector2( 0.948629, 0.546755 )
+polygon = PoolVector2Array( -10.9231, -12.3534, -10.9231, -18.2526, 10.55, -16.6008, 17.8651, -5.98222, 12.4377, 0.624908, 11.0219, 11.7154, -10.4512, 12.1874, -16.1144, -3.62253, -16.5864, -11.6455, -11.1591, -18.7245 )
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2( 12.1143, 40.5939 )
+scale = Vector2( 4, 4 )
+current = true
+process_mode = 0
+limit_left = 0
+limit_top = 0
+limit_right = 1344
+limit_bottom = 704
+
+[node name="RayCast2D" type="RayCast2D" parent="Player"]
+enabled = true
+cast_to = Vector2( 0, -50 )
+collide_with_areas = true
+
+[node name="BlockingDialogBox" type="CanvasLayer" parent="."]
+script = ExtResource( 22 )
+
+[node name="ConfirmationDialog" type="ConfirmationDialog" parent="."]
+pause_mode = 2
+margin_left = 720.686
+margin_top = 389.56
+margin_right = 920.686
+margin_bottom = 459.56
+popup_exclusive = true
+window_title = "Locanda"
+dialog_text = "Vuoi veramente dormire per 20 monete?"
+dialog_autowrap = true
+script = ExtResource( 28 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TileMap_Black" type="TileMap" parent="."]
+visible = false
+scale = Vector2( 2, 2 )
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 32, 32 )
+format = 1
+tile_data = PoolIntArray( 0, 75, 0, 1, 75, 0, 2, 75, 0, 3, 75, 0, 4, 75, 0, 5, 75, 0, 6, 75, 0, 7, 75, 0, 8, 75, 0, 9, 75, 0, 10, 75, 0, 11, 75, 0, 12, 75, 0, 13, 75, 0, 14, 75, 0, 15, 75, 0, 16, 75, 0, 17, 75, 0, 18, 75, 0, 19, 75, 0, 20, 75, 0, 65536, 75, 0, 65537, 75, 0, 65538, 75, 0, 65539, 75, 0, 65540, 75, 0, 65541, 75, 0, 65542, 75, 0, 65543, 75, 0, 65544, 75, 0, 65545, 75, 0, 65546, 75, 0, 65547, 75, 0, 65548, 75, 0, 65549, 75, 0, 65550, 75, 0, 65551, 75, 0, 65552, 75, 0, 65553, 75, 0, 65554, 75, 0, 65555, 75, 0, 65556, 75, 0, 131072, 75, 0, 131073, 75, 0, 131074, 75, 0, 131075, 75, 0, 131076, 75, 0, 131077, 75, 0, 131078, 75, 0, 131079, 75, 0, 131080, 75, 0, 131081, 75, 0, 131082, 75, 0, 131083, 75, 0, 131084, 75, 0, 131085, 75, 0, 131086, 75, 0, 131087, 75, 0, 131088, 75, 0, 131089, 75, 0, 131090, 75, 0, 131091, 75, 0, 131092, 75, 0, 196608, 75, 0, 196609, 75, 0, 196610, 75, 0, 196611, 75, 0, 196612, 75, 0, 196613, 75, 0, 196614, 75, 0, 196615, 75, 0, 196616, 75, 0, 196617, 75, 0, 196618, 75, 0, 196619, 75, 0, 196620, 75, 0, 196621, 75, 0, 196622, 75, 0, 196623, 75, 0, 196624, 75, 0, 196625, 75, 0, 196626, 75, 0, 196627, 75, 0, 196628, 75, 0, 262144, 75, 0, 262145, 75, 0, 262146, 75, 0, 262147, 75, 0, 262148, 75, 0, 262149, 75, 0, 262150, 75, 0, 262151, 75, 0, 262152, 75, 0, 262153, 75, 0, 262154, 75, 0, 262155, 75, 0, 262156, 75, 0, 262157, 75, 0, 262158, 75, 0, 262159, 75, 0, 262160, 75, 0, 262161, 75, 0, 262162, 75, 0, 262163, 75, 0, 262164, 75, 0, 327680, 75, 0, 327681, 75, 0, 327682, 75, 0, 327683, 75, 0, 327684, 75, 0, 327685, 75, 0, 327686, 75, 0, 327687, 75, 0, 327688, 75, 0, 327689, 75, 0, 327690, 75, 0, 327691, 75, 0, 327692, 75, 0, 327693, 75, 0, 327694, 75, 0, 327695, 75, 0, 327696, 75, 0, 327697, 75, 0, 327698, 75, 0, 327699, 75, 0, 327700, 75, 0, 393216, 75, 0, 393217, 75, 0, 393218, 75, 0, 393219, 75, 0, 393220, 75, 0, 393221, 75, 0, 393222, 75, 0, 393223, 75, 0, 393224, 75, 0, 393225, 75, 0, 393226, 75, 0, 393227, 75, 0, 393228, 75, 0, 393229, 75, 0, 393230, 75, 0, 393231, 75, 0, 393232, 75, 0, 393233, 75, 0, 393234, 75, 0, 393235, 75, 0, 393236, 75, 0, 458752, 75, 0, 458753, 75, 0, 458754, 75, 0, 458755, 75, 0, 458756, 75, 0, 458757, 75, 0, 458758, 75, 0, 458759, 75, 0, 458760, 75, 0, 458761, 75, 0, 458762, 75, 0, 458763, 75, 0, 458764, 75, 0, 458765, 75, 0, 458766, 75, 0, 458767, 75, 0, 458768, 75, 0, 458769, 75, 0, 458770, 75, 0, 458771, 75, 0, 458772, 75, 0, 524288, 75, 0, 524289, 75, 0, 524290, 75, 0, 524291, 75, 0, 524292, 75, 0, 524293, 75, 0, 524294, 75, 0, 524295, 75, 0, 524296, 75, 0, 524297, 75, 0, 524298, 75, 0, 524299, 75, 0, 524300, 75, 0, 524301, 75, 0, 524302, 75, 0, 524303, 75, 0, 524304, 75, 0, 524305, 75, 0, 524306, 75, 0, 524307, 75, 0, 524308, 75, 0, 589824, 75, 0, 589825, 75, 0, 589826, 75, 0, 589827, 75, 0, 589828, 75, 0, 589829, 75, 0, 589830, 75, 0, 589831, 75, 0, 589832, 75, 0, 589833, 75, 0, 589834, 75, 0, 589835, 75, 0, 589836, 75, 0, 589837, 75, 0, 589838, 75, 0, 589839, 75, 0, 589840, 75, 0, 589841, 75, 0, 589842, 75, 0, 589843, 75, 0, 589844, 75, 0, 655360, 75, 0, 655361, 75, 0, 655362, 75, 0, 655363, 75, 0, 655364, 75, 0, 655365, 75, 0, 655366, 75, 0, 655367, 75, 0, 655368, 75, 0, 655369, 75, 0, 655370, 75, 0, 655371, 75, 0, 655372, 75, 0, 655373, 75, 0, 655374, 75, 0, 655375, 75, 0, 655376, 75, 0, 655377, 75, 0, 655378, 75, 0, 655379, 75, 0, 655380, 75, 0 )
+
+[node name="Background_Music" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
+stream = ExtResource( 23 )
+volume_db = -37.359
+autoplay = true
+
+[node name="Sleep_Sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 29 )
+volume_db = -27.264
+[connection signal="about_to_show" from="ConfirmationDialog" to="InnKeeper" method="_on_ConfirmationDialog_about_to_show"]
+[connection signal="confirmed" from="ConfirmationDialog" to="InnKeeper" method="_on_ConfirmationDialog_confirmed"]
+[connection signal="popup_hide" from="ConfirmationDialog" to="InnKeeper" method="_on_ConfirmationDialog_popup_hide"]

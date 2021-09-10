@@ -1,0 +1,257 @@
+[gd_scene load_steps=33 format=2]
+
+[ext_resource path="res://Assets/TileMaps/Interiors/Interiors.res" type="TileSet" id=1]
+[ext_resource path="res://addons/blocking_dialog_box/blocking_dialog_box.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/Character/SetStartAnimation.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/Character/Player.gd" type="Script" id=4]
+[ext_resource path="res://Assets/Characters/Male/walk_left_boy_sx.png.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Characters/Female/stand_left_girl.png.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Characters/Female/stand_up_girl.png.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Characters/Male/stand_down_boy.png.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Characters/Female/walk_down_girl_sx.png.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Characters/Female/walk_left_girl_sx.png.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Characters/Male/walk_left_boy_dx.png.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Characters/Female/walk_up_girl_sx.png.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Characters/Male/walk_down_boy_sx.png.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Characters/Male/stand_up_boy.png.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Characters/Female/stand_down_girl.png.png" type="Texture" id=15]
+[ext_resource path="res://Assets/Characters/Female/walk_up_girl_dx.png.png" type="Texture" id=16]
+[ext_resource path="res://Assets/Characters/Male/walk_up_boy_sx.png.png" type="Texture" id=17]
+[ext_resource path="res://Assets/Characters/Male/stand_left_boy.png.png" type="Texture" id=18]
+[ext_resource path="res://Assets/Characters/Female/walk_down_girl_dx.png.png" type="Texture" id=19]
+[ext_resource path="res://Assets/Characters/Male/walk_up_boy_dx.png.png" type="Texture" id=20]
+[ext_resource path="res://Assets/Characters/Female/walk_left_girl_dx.png.png" type="Texture" id=21]
+[ext_resource path="res://Assets/Characters/Male/walk_down_boy_dx.png.png" type="Texture" id=22]
+[ext_resource path="res://Audio/Musics/village_background.wav" type="AudioStream" id=23]
+[ext_resource path="res://Scripts/PauseMenu/TogglePauseMenu.gd" type="Script" id=24]
+[ext_resource path="res://Scripts/Shop/Shop_Exit.gd" type="Script" id=25]
+[ext_resource path="res://Assets/Characters/Shop_assistant.png" type="Texture" id=26]
+[ext_resource path="res://Assets/TabletMenu.png" type="Texture" id=27]
+[ext_resource path="res://Scripts/Shop/Shop_Assistant.gd" type="Script" id=28]
+[ext_resource path="res://Scripts/Shop/TutorialDialog.gd" type="Script" id=29]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 58.468, 10.216 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 48, 64 )
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 17 ), ExtResource( 14 ), ExtResource( 20 ), ExtResource( 14 ) ],
+"loop": true,
+"name": "male_walk_up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 15 ) ],
+"loop": true,
+"name": "female_stand_down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 18 ), ExtResource( 11 ), ExtResource( 18 ) ],
+"loop": true,
+"name": "male_walk_left",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "male_stand_down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 14 ) ],
+"loop": true,
+"name": "male_stand_up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "female_stand_left",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ), ExtResource( 15 ), ExtResource( 19 ), ExtResource( 15 ) ],
+"loop": true,
+"name": "female_walk_down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 18 ) ],
+"loop": true,
+"name": "male_stand_left",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "female_stand_up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ), ExtResource( 8 ), ExtResource( 22 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "male_walk_down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 21 ), ExtResource( 6 ), ExtResource( 10 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "female_walk_left",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 16 ), ExtResource( 7 ), ExtResource( 12 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "female_walk_up",
+"speed": 5.0
+} ]
+
+[node name="Shop" type="Node2D"]
+script = ExtResource( 24 )
+
+[node name="TileMap_Floor" type="TileMap" parent="."]
+scale = Vector2( 2, 2 )
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 32, 32 )
+format = 1
+tile_data = PoolIntArray( 0, 40, 0, 1, 41, 0, 2, 41, 0, 3, 41, 0, 4, 41, 0, 5, 41, 0, 6, 41, 0, 7, 41, 0, 8, 41, 0, 9, 41, 0, 10, 41, 0, 11, 41, 0, 12, 41, 0, 13, 41, 0, 14, 41, 0, 15, 41, 0, 16, 41, 0, 17, 42, 0, 65536, 43, 0, 65537, 38, 0, 65538, 38, 0, 65539, 38, 0, 65540, 38, 0, 65541, 38, 0, 65542, 38, 0, 65543, 38, 0, 65544, 38, 0, 65545, 38, 0, 65546, 38, 0, 65547, 38, 0, 65548, 38, 0, 65549, 38, 0, 65550, 38, 0, 65551, 38, 0, 65552, 38, 0, 65553, 44, 0, 131072, 43, 0, 131073, 71, 0, 131074, 71, 0, 131075, 71, 0, 131076, 71, 0, 131077, 71, 0, 131078, 71, 0, 131079, 71, 0, 131080, 71, 0, 131081, 71, 0, 131082, 71, 0, 131083, 71, 0, 131084, 71, 0, 131085, 71, 0, 131086, 71, 0, 131087, 71, 0, 131088, 71, 0, 131089, 44, 0, 196608, 43, 0, 196609, 39, 0, 196610, 39, 0, 196611, 39, 0, 196612, 39, 0, 196613, 39, 0, 196614, 39, 0, 196615, 39, 0, 196616, 39, 0, 196617, 39, 0, 196618, 39, 0, 196619, 39, 0, 196620, 39, 0, 196621, 39, 0, 196622, 39, 0, 196623, 39, 0, 196624, 39, 0, 196625, 44, 0, 262144, 43, 0, 262145, 10, 0, 262146, 10, 0, 262147, 10, 0, 262148, 10, 0, 262149, 10, 0, 262150, 10, 0, 262151, 10, 0, 262152, 10, 0, 262153, 10, 0, 262154, 10, 0, 262155, 10, 0, 262156, 10, 0, 262157, 10, 0, 262158, 10, 0, 262159, 10, 0, 262160, 10, 0, 262161, 44, 0, 327680, 43, 0, 327681, 10, 0, 327682, 10, 0, 327683, 10, 0, 327684, 10, 0, 327685, 10, 0, 327686, 10, 0, 327687, 28, 0, 327688, 29, 0, 327689, 29, 0, 327690, 29, 0, 327691, 29, 0, 327692, 30, 0, 327693, 10, 0, 327694, 10, 0, 327695, 10, 0, 327696, 10, 0, 327697, 44, 0, 393216, 43, 0, 393217, 10, 0, 393218, 10, 0, 393219, 10, 0, 393220, 10, 0, 393221, 10, 0, 393222, 10, 0, 393223, 31, 0, 393224, 32, 0, 393225, 32, 0, 393226, 32, 0, 393227, 32, 0, 393228, 33, 0, 393229, 10, 0, 393230, 10, 0, 393231, 10, 0, 393232, 10, 0, 393233, 44, 0, 458752, 43, 0, 458753, 10, 0, 458754, 10, 0, 458755, 10, 0, 458756, 10, 0, 458757, 10, 0, 458758, 10, 0, 458759, 10, 0, 458760, 10, 0, 458761, 10, 0, 458762, 10, 0, 458763, 10, 0, 458764, 10, 0, 458765, 10, 0, 458766, 10, 0, 458767, 10, 0, 458768, 10, 0, 458769, 44, 0, 524288, 45, 0, 524289, 46, 0, 524290, 46, 0, 524291, 46, 0, 524292, 46, 0, 524293, 47, 0, 524294, 45, 0, 524295, 46, 0, 524296, 46, 0, 524297, 46, 0, 524298, 46, 0, 524299, 46, 0, 524300, 46, 0, 524301, 46, 0, 524302, 46, 0, 524303, 46, 0, 524304, 46, 0, 524305, 47, 0, 589824, 75, 0, 589825, 75, 0, 589826, 75, 0, 589827, 75, 0, 589828, 75, 0, 589829, 75, 0, 589830, 75, 0, 589831, 75, 0, 589832, 75, 0, 589833, 75, 0, 589834, 75, 0, 589835, 75, 0, 589836, 75, 0, 589837, 75, 0, 589838, 75, 0, 589839, 75, 0, 589840, 75, 0, 589841, 75, 0 )
+
+[node name="Shop_Exit" type="Area2D" parent="TileMap_Floor"]
+position = Vector2( 508, 132 )
+scale = Vector2( 0.5, 0.5 )
+script = ExtResource( 25 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap_Floor/Shop_Exit"]
+position = Vector2( -632, 272 )
+shape = SubResource( 1 )
+
+[node name="TileMap_Objects" type="TileMap" parent="."]
+scale = Vector2( 2, 2 )
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 32, 32 )
+format = 1
+tile_data = PoolIntArray( 65540, 19, 0, 65550, 19, 0, 131077, 3, 0, 131078, 59, 0, 131081, 55, 0, 131082, 58, 0, 131084, 3, 0, 196611, 62, 0, 196612, 60, 0, 196613, 1, 0, 196614, 72, 0, 196615, 60, 0, 196616, 61, 0, 196617, 1, 0, 196618, 72, 0, 196619, 63, 0, 196620, 1, 0, 196623, 3, 0, 196624, 67, 0, 262145, 49, 0, 262146, 3, 0, 262147, 18, 0, 262148, 18, 0, 262149, 2, 0, 262150, 0, 0, 262151, 57, 0, 262152, 0, 0, 262153, 2, 0, 262154, 0, 0, 262155, 56, 0, 262156, 57, 0, 262157, 50, 0, 262158, 49, 0, 262159, 4, 0, 262160, 70, 0, 327681, 58, 0, 327682, 1, 0, 327683, 50, 0, 327684, 49, 0, 327688, 15, 0, 327689, 16, 0, 327690, 16, 0, 327691, 64, 0, 327694, 49, 0, 327695, 2, 0, 327696, 69, 0, 393217, 0, 0, 393218, 2, 0, 393224, 17, 0, 393225, 18, 0, 393226, 18, 0, 393227, 65, 0 )
+
+[node name="Shop_Assistant" type="StaticBody2D" parent="."]
+script = ExtResource( 28 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Shop_Assistant"]
+position = Vector2( 616, 360 )
+shape = SubResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="Shop_Assistant"]
+position = Vector2( 616, 312 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 26 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[node name="Player" type="KinematicBody2D" parent="."]
+position = Vector2( 379.169, 472.644 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Player"]
+position = Vector2( 4.43768, -2.55774 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 3 )
+animation = "male_stand_up"
+script = ExtResource( 3 )
+
+[node name="PauseMenu" type="Control" parent="Player"]
+pause_mode = 2
+visible = false
+margin_left = -627.169
+margin_top = -144.644
+margin_right = -627.169
+margin_bottom = -144.644
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="TextureRect" parent="Player/PauseMenu"]
+margin_left = 458.0
+margin_top = -67.0
+margin_right = 811.0
+margin_bottom = 205.0
+texture = ExtResource( 27 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Player/PauseMenu/ColorRect"]
+margin_left = -34.0
+margin_top = -133.0
+margin_right = 286.0
+margin_bottom = 115.0
+rect_scale = Vector2( 0.8, 0.8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Player"]
+position = Vector2( 4.90246, 22.1211 )
+scale = Vector2( 0.948629, 0.546755 )
+polygon = PoolVector2Array( -10.9231, -12.3534, -10.9231, -18.2526, 10.55, -16.6008, 17.8651, -5.98222, 12.4377, 0.624908, 11.0219, 11.7154, -10.4512, 12.1874, -16.1144, -3.62253, -16.5864, -11.6455, -11.1591, -18.7245 )
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2( 12.1143, 40.5939 )
+scale = Vector2( 4, 4 )
+current = true
+process_mode = 0
+limit_left = 0
+limit_top = 0
+limit_right = 1152
+limit_bottom = 576
+
+[node name="RayCast2D" type="RayCast2D" parent="Player"]
+enabled = true
+
+[node name="Background_Music" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
+stream = ExtResource( 23 )
+volume_db = -31.301
+autoplay = true
+
+[node name="BlockingDialogBox" type="CanvasLayer" parent="."]
+script = ExtResource( 2 )
+
+[node name="ShopMenu" type="Control" parent="."]
+pause_mode = 2
+visible = false
+margin_left = 112.0
+margin_top = 24.0
+margin_right = 152.0
+margin_bottom = 64.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="ShopMenu"]
+margin_left = 264.955
+margin_top = 165.064
+margin_right = 783.955
+margin_bottom = 475.064
+color = Color( 0, 0, 0, 0.827451 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ShopMenu/ColorRect"]
+margin_left = -136.955
+margin_top = -149.064
+margin_right = 119.045
+margin_bottom = 149.936
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TutorialDialog" type="AcceptDialog" parent="."]
+margin_left = 208.0
+margin_top = 224.0
+margin_right = 608.0
+margin_bottom = 418.0
+popup_exclusive = true
+window_title = "Nuova notifica: Tutorial #3"
+dialog_text = "Qui potrai creare ed acquistare le tue funzioni per poi utilizzarle in battaglia. Le funzioni sono un modo ingegnoso per riutilizzare del codice già scritto senza doverlo riscrivere ogni volta che ci serve, se vuoi maggiori informazioni consulta la sezione \"Aiuto\". 
+Per crearla seleziona le istruzioni nell'ordine che preferisci e inserisci un nome; ricorda, in battaglia non potrai vedere il contenuto delle funzioni ma solo il nome, quindi sceglilo bene!"
+dialog_autowrap = true
+script = ExtResource( 29 )

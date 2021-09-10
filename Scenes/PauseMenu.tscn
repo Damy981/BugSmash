@@ -1,0 +1,556 @@
+[gd_scene load_steps=32 format=2]
+
+[ext_resource path="res://Assets/VERDANAB.TTF" type="DynamicFontData" id=1]
+[ext_resource path="res://Scripts/PauseMenu/Resume.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/PauseMenu/goToMainMenu.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/PauseMenu/ShowFunctions.gd" type="Script" id=4]
+[ext_resource path="res://Scripts/PauseMenu/ShowHelp.gd" type="Script" id=5]
+[ext_resource path="res://Scripts/MainMenu/SelectCursor.gd" type="Script" id=6]
+[ext_resource path="res://Scripts/PauseMenu/ShowQuests.gd" type="Script" id=7]
+[ext_resource path="res://Scripts/PauseMenu/Save.gd" type="Script" id=8]
+[ext_resource path="res://Audio/Sounds/cursor_move.wav" type="AudioStream" id=9]
+[ext_resource path="res://Audio/Sounds/confirm.wav" type="AudioStream" id=10]
+[ext_resource path="res://Scripts/PauseMenu/QuestList.gd" type="Script" id=11]
+[ext_resource path="res://Assets/MainMenu/hand_cursor.png" type="Texture" id=12]
+[ext_resource path="res://Scripts/PauseMenu/FunctionList.gd" type="Script" id=13]
+[ext_resource path="res://Scripts/PauseMenu/Help.gd" type="Script" id=14]
+[ext_resource path="res://Scripts/PauseMenu/SelectCursorFunctions.gd" type="Script" id=15]
+[ext_resource path="res://Scripts/PauseMenu/matchHelp.gd" type="Script" id=16]
+[ext_resource path="res://Scripts/PauseMenu/SelectCursorHelp.gd" type="Script" id=17]
+[ext_resource path="res://Scripts/PauseMenu/setHpLabel.gd" type="Script" id=18]
+[ext_resource path="res://Assets/heart.png" type="Texture" id=19]
+[ext_resource path="res://Scripts/PauseMenu/setCoinsLabel.gd" type="Script" id=20]
+[ext_resource path="res://Assets/Coin.png" type="Texture" id=21]
+[ext_resource path="res://Scripts/PauseMenu/setPotionsLabel.gd" type="Script" id=22]
+[ext_resource path="res://Assets/potion.png" type="Texture" id=23]
+
+[sub_resource type="DynamicFont" id=1]
+size = 24
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 20
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 15
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 13
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 130
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 13
+font_data = ExtResource( 1 )
+
+[node name="PauseMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false,
+"_edit_vertical_guides_": [  ]
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.105882, 0.101961, 0.101961, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 150.0
+margin_top = 250.0
+margin_right = -150.0
+margin_bottom = -150.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainerM" type="VBoxContainer" parent="ColorRect/MarginContainer"]
+margin_right = 724.0
+margin_bottom = 206.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MenuEntries" type="VBoxContainer" parent="ColorRect/MarginContainer/VBoxContainerM"]
+margin_right = 724.0
+margin_bottom = 206.0
+size_flags_vertical = 3
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Resume" type="Label" parent="ColorRect/MarginContainer/VBoxContainerM/MenuEntries"]
+margin_right = 724.0
+margin_bottom = 31.0
+custom_fonts/font = SubResource( 1 )
+text = "Riprendi"
+uppercase = true
+script = ExtResource( 2 )
+
+[node name="Quests" type="Label" parent="ColorRect/MarginContainer/VBoxContainerM/MenuEntries"]
+margin_top = 35.0
+margin_right = 724.0
+margin_bottom = 66.0
+custom_fonts/font = SubResource( 1 )
+text = "Missioni"
+uppercase = true
+script = ExtResource( 7 )
+
+[node name="Functions" type="Label" parent="ColorRect/MarginContainer/VBoxContainerM/MenuEntries"]
+margin_top = 70.0
+margin_right = 724.0
+margin_bottom = 101.0
+custom_fonts/font = SubResource( 1 )
+text = "Funzioni"
+uppercase = true
+script = ExtResource( 4 )
+
+[node name="Save" type="Label" parent="ColorRect/MarginContainer/VBoxContainerM/MenuEntries"]
+margin_top = 105.0
+margin_right = 724.0
+margin_bottom = 136.0
+custom_fonts/font = SubResource( 1 )
+text = "Salva"
+uppercase = true
+script = ExtResource( 8 )
+
+[node name="Help" type="Label" parent="ColorRect/MarginContainer/VBoxContainerM/MenuEntries"]
+margin_top = 140.0
+margin_right = 724.0
+margin_bottom = 171.0
+custom_fonts/font = SubResource( 1 )
+text = "Aiuto"
+uppercase = true
+script = ExtResource( 5 )
+
+[node name="Main Menu" type="Label" parent="ColorRect/MarginContainer/VBoxContainerM/MenuEntries"]
+margin_top = 175.0
+margin_right = 724.0
+margin_bottom = 206.0
+custom_fonts/font = SubResource( 1 )
+text = "Menu principale"
+uppercase = true
+script = ExtResource( 3 )
+
+[node name="SelectCursor" type="Sprite" parent="ColorRect/MarginContainer/VBoxContainerM/MenuEntries"]
+position = Vector2( -29.0089, 104.352 )
+scale = Vector2( 1.13396, 1 )
+texture = ExtResource( 12 )
+script = ExtResource( 6 )
+
+[node name="menu_cursor_sound" type="AudioStreamPlayer" parent="ColorRect/MarginContainer/VBoxContainerM/MenuEntries/SelectCursor"]
+stream = ExtResource( 9 )
+volume_db = -30.0
+
+[node name="option_confirm_sound" type="AudioStreamPlayer" parent="ColorRect/MarginContainer/VBoxContainerM/MenuEntries/SelectCursor"]
+stream = ExtResource( 10 )
+volume_db = -13.0
+
+[node name="ColorRectQuests" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.105882, 0.101961, 0.101961, 1 )
+script = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRectQuests"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 80.1543
+margin_top = 202.378
+margin_right = -219.846
+margin_bottom = -197.622
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainerM" type="VBoxContainer" parent="ColorRectQuests/MarginContainer"]
+margin_right = 723.0
+margin_bottom = 199.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Quest" type="Label" parent="ColorRectQuests/MarginContainer/VBoxContainerM"]
+margin_right = 723.0
+margin_bottom = 21.0
+custom_fonts/font = SubResource( 2 )
+text = "Non hai missioni attive"
+uppercase = true
+
+[node name="BackButtonQuests" type="Button" parent="ColorRectQuests"]
+margin_left = 153.178
+margin_top = 433.189
+margin_right = 259.178
+margin_bottom = 471.189
+custom_fonts/font = SubResource( 3 )
+text = "INDIETRO"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRectFunctions" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.105882, 0.101961, 0.101961, 1 )
+script = ExtResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRectFunctions"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 107.14
+margin_top = 229.364
+margin_right = -192.86
+margin_bottom = -170.636
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainerM" type="VBoxContainer" parent="ColorRectFunctions/MarginContainer"]
+margin_right = 724.0
+margin_bottom = 200.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MenuEntries" type="VBoxContainer" parent="ColorRectFunctions/MarginContainer/VBoxContainerM"]
+margin_right = 724.0
+margin_bottom = 200.0
+size_flags_vertical = 3
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SelectCursorFunctions" type="Sprite" parent="ColorRectFunctions/MarginContainer/VBoxContainerM/MenuEntries"]
+visible = false
+position = Vector2( -29.0089, 104.352 )
+scale = Vector2( 1.13396, 1 )
+texture = ExtResource( 12 )
+script = ExtResource( 15 )
+
+[node name="menu_cursor_sound" type="AudioStreamPlayer" parent="ColorRectFunctions/MarginContainer/VBoxContainerM/MenuEntries/SelectCursorFunctions"]
+stream = ExtResource( 9 )
+volume_db = -30.0
+
+[node name="option_confirm_sound" type="AudioStreamPlayer" parent="ColorRectFunctions/MarginContainer/VBoxContainerM/MenuEntries/SelectCursorFunctions"]
+stream = ExtResource( 10 )
+volume_db = -13.0
+
+[node name="BackButtonFunctions" type="Button" parent="ColorRectFunctions"]
+margin_left = 153.178
+margin_top = 433.189
+margin_right = 259.178
+margin_bottom = 471.189
+custom_fonts/font = SubResource( 3 )
+text = "INDIETRO"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRectInstructions" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.105882, 0.101961, 0.101961, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRectInstructions"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 289.329
+margin_top = 229.049
+margin_right = -547.671
+margin_bottom = -170.951
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainerM" type="VBoxContainer" parent="ColorRectInstructions/MarginContainer"]
+margin_right = 186.0
+margin_bottom = 200.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MenuEntries" type="VBoxContainer" parent="ColorRectInstructions/MarginContainer/VBoxContainerM"]
+margin_right = 187.0
+margin_bottom = 200.0
+size_flags_vertical = 3
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRectHelp" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.105882, 0.101961, 0.101961, 1 )
+script = ExtResource( 14 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="ColorRectHelp"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 67.0869
+margin_top = 225.066
+margin_right = -566.913
+margin_bottom = -196.934
+rect_min_size = Vector2( 390, 178 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainerM" type="Control" parent="ColorRectHelp/ScrollContainer"]
+margin_right = 390.0
+margin_bottom = 311.0
+rect_min_size = Vector2( 390, 311 )
+
+[node name="MenuEntries" type="Control" parent="ColorRectHelp/ScrollContainer/VBoxContainerM"]
+margin_right = 420.0
+margin_bottom = 311.0
+rect_min_size = Vector2( 400, 311 )
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Variables" type="Label" parent="ColorRectHelp/ScrollContainer/VBoxContainerM/MenuEntries"]
+margin_left = 50.0
+margin_right = 360.0
+margin_bottom = 31.0
+custom_fonts/font = SubResource( 4 )
+text = "le variabili"
+uppercase = true
+script = ExtResource( 16 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Istructions" type="Label" parent="ColorRectHelp/ScrollContainer/VBoxContainerM/MenuEntries"]
+margin_left = 50.0
+margin_top = 35.0
+margin_right = 360.0
+margin_bottom = 66.0
+custom_fonts/font = SubResource( 4 )
+text = "istruzioni in sequenza"
+uppercase = true
+script = ExtResource( 16 )
+
+[node name="Functions" type="Label" parent="ColorRectHelp/ScrollContainer/VBoxContainerM/MenuEntries"]
+margin_left = 50.0
+margin_top = 70.0
+margin_right = 360.0
+margin_bottom = 101.0
+custom_fonts/font = SubResource( 4 )
+text = "le funzioni"
+uppercase = true
+script = ExtResource( 16 )
+
+[node name="HealthCoins" type="Label" parent="ColorRectHelp/ScrollContainer/VBoxContainerM/MenuEntries"]
+margin_left = 50.0
+margin_top = 105.0
+margin_right = 360.0
+margin_bottom = 136.0
+custom_fonts/font = SubResource( 4 )
+text = "punti vita e monete"
+uppercase = true
+script = ExtResource( 16 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Battles" type="Label" parent="ColorRectHelp/ScrollContainer/VBoxContainerM/MenuEntries"]
+margin_left = 50.0
+margin_top = 140.0
+margin_right = 360.0
+margin_bottom = 171.0
+custom_fonts/font = SubResource( 4 )
+text = "i combattimenti"
+uppercase = true
+script = ExtResource( 16 )
+
+[node name="Inn" type="Label" parent="ColorRectHelp/ScrollContainer/VBoxContainerM/MenuEntries"]
+margin_left = 50.0
+margin_top = 175.0
+margin_right = 360.0
+margin_bottom = 206.0
+custom_fonts/font = SubResource( 4 )
+text = "la locanda"
+uppercase = true
+script = ExtResource( 16 )
+
+[node name="Shop" type="Label" parent="ColorRectHelp/ScrollContainer/VBoxContainerM/MenuEntries"]
+margin_left = 50.0
+margin_top = 210.0
+margin_right = 360.0
+margin_bottom = 241.0
+custom_fonts/font = SubResource( 4 )
+text = "il negozio"
+uppercase = true
+script = ExtResource( 16 )
+
+[node name="Bugs" type="Label" parent="ColorRectHelp/ScrollContainer/VBoxContainerM/MenuEntries"]
+margin_left = 50.0
+margin_top = 245.0
+margin_right = 360.0
+margin_bottom = 276.0
+custom_fonts/font = SubResource( 4 )
+text = "i bug"
+uppercase = true
+script = ExtResource( 16 )
+
+[node name="Bridge" type="Label" parent="ColorRectHelp/ScrollContainer/VBoxContainerM/MenuEntries"]
+margin_left = 50.0
+margin_top = 280.0
+margin_right = 360.0
+margin_bottom = 311.0
+custom_fonts/font = SubResource( 4 )
+text = "il ponte"
+uppercase = true
+script = ExtResource( 16 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SelectCursorHelp" type="Sprite" parent="ColorRectHelp/ScrollContainer/VBoxContainerM/MenuEntries"]
+visible = false
+position = Vector2( -29.0089, 104.352 )
+scale = Vector2( 1.13396, 1 )
+texture = ExtResource( 12 )
+script = ExtResource( 17 )
+
+[node name="menu_cursor_sound" type="AudioStreamPlayer" parent="ColorRectHelp/ScrollContainer/VBoxContainerM/MenuEntries/SelectCursorHelp"]
+stream = ExtResource( 9 )
+volume_db = -30.0
+
+[node name="option_confirm_sound" type="AudioStreamPlayer" parent="ColorRectHelp/ScrollContainer/VBoxContainerM/MenuEntries/SelectCursorHelp"]
+stream = ExtResource( 10 )
+volume_db = -13.0
+
+[node name="ScrollContainer2" type="ScrollContainer" parent="ColorRectHelp"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 81.6474
+margin_top = 233.351
+margin_right = -567.353
+margin_bottom = -188.649
+rect_min_size = Vector2( 377, 178 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainerM" type="Control" parent="ColorRectHelp/ScrollContainer2"]
+margin_right = 375.0
+margin_bottom = 750.0
+rect_min_size = Vector2( 375, 750 )
+
+[node name="MenuEntries" type="Control" parent="ColorRectHelp/ScrollContainer2/VBoxContainerM"]
+margin_right = 375.0
+margin_bottom = 311.0
+rect_min_size = Vector2( 375, 311 )
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="ColorRectHelp/ScrollContainer2/VBoxContainerM/MenuEntries"]
+margin_right = 40.0
+margin_bottom = 14.0
+custom_fonts/font = SubResource( 5 )
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackButtonHelp" type="Button" parent="ColorRectHelp"]
+margin_left = 153.178
+margin_top = 433.189
+margin_right = 259.178
+margin_bottom = 471.189
+custom_fonts/font = SubResource( 3 )
+text = "INDIETRO"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HP" type="Sprite" parent="."]
+position = Vector2( 138.078, 213.622 )
+texture = ExtResource( 19 )
+
+[node name="Label" type="Label" parent="HP"]
+margin_left = 20.0
+margin_top = -17.0
+margin_right = 41.0
+rect_scale = Vector2( 2, 2 )
+custom_fonts/font = SubResource( 6 )
+script = ExtResource( 18 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Potions" type="Sprite" parent="."]
+position = Vector2( 357.875, 214.329 )
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 23 )
+
+[node name="Label" type="Label" parent="Potions"]
+margin_left = 177.0
+margin_top = -149.0
+margin_right = 370.0
+margin_bottom = 0.999985
+rect_scale = Vector2( 2, 2 )
+custom_fonts/font = SubResource( 7 )
+script = ExtResource( 22 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Coins" type="Sprite" parent="."]
+position = Vector2( 250, 214 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 21 )
+
+[node name="Label" type="Label" parent="Coins"]
+margin_left = 10.5
+margin_top = -9.0
+margin_right = 31.5
+margin_bottom = 8.0
+custom_fonts/font = SubResource( 8 )
+script = ExtResource( 20 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="ColorRectQuests/BackButtonQuests" to="ColorRectQuests" method="_on_BackButtonQuests_pressed"]
+[connection signal="pressed" from="ColorRectFunctions/BackButtonFunctions" to="ColorRectFunctions" method="_on_BackButtonFunctions_pressed"]
+[connection signal="pressed" from="ColorRectHelp/BackButtonHelp" to="ColorRectHelp" method="_on_BackButtonHelp_pressed"]

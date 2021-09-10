@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/woods.wav-2f0216370317f6ffba9c12e2097a4cbe.sample"
+
+[deps]
+
+source_file="res://Audio/Musics/woods.wav"
+dest_files=[ "res://.import/woods.wav-2f0216370317f6ffba9c12e2097a4cbe.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0

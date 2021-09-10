@@ -1,0 +1,242 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://Assets/VERDANAB.TTF" type="DynamicFontData" id=1]
+[ext_resource path="res://Scripts/MainMenu/SelectCursor.gd" type="Script" id=2]
+[ext_resource path="res://Audio/Sounds/cursor_move.wav" type="AudioStream" id=3]
+[ext_resource path="res://Audio/Sounds/confirm.wav" type="AudioStream" id=4]
+[ext_resource path="res://Assets/MainMenu/hand_cursor.png" type="Texture" id=5]
+[ext_resource path="res://Scripts/ShopMenu/Close.gd" type="Script" id=6]
+[ext_resource path="res://Scripts/ShopMenu/ShopMenuBack.gd" type="Script" id=7]
+[ext_resource path="res://Scripts/ShopMenu/showFunctions.gd" type="Script" id=8]
+[ext_resource path="res://Scripts/ShopMenu/showitems.gd" type="Script" id=9]
+[ext_resource path="res://Scripts/ShopMenu/HealthPotion.gd" type="Script" id=10]
+[ext_resource path="res://Scripts/ShopMenu/GetInstructions.gd" type="Script" id=11]
+[ext_resource path="res://Scripts/ShopMenu/CreateFunctionCursor.gd" type="Script" id=12]
+[ext_resource path="res://Scripts/ShopMenu/EscButton.gd" type="Script" id=13]
+[ext_resource path="res://Scripts/ShopMenu/CreateFunction.gd" type="Script" id=14]
+
+[sub_resource type="DynamicFont" id=1]
+size = 24
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+font_data = ExtResource( 1 )
+
+[node name="ShopMenu" type="Control"]
+script = ExtResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRectShop" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.105882, 0.101961, 0.101961, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRectShop"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 150.0
+margin_top = 250.0
+margin_right = -150.0
+margin_bottom = -150.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainerM" type="VBoxContainer" parent="ColorRectShop/MarginContainer"]
+margin_right = 475.0
+margin_bottom = 101.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MenuEntries" type="VBoxContainer" parent="ColorRectShop/MarginContainer/VBoxContainerM"]
+margin_right = 475.0
+margin_bottom = 101.0
+size_flags_vertical = 3
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="items" type="Label" parent="ColorRectShop/MarginContainer/VBoxContainerM/MenuEntries" groups=[
+"ShopMenuOptions",
+]]
+margin_right = 475.0
+margin_bottom = 31.0
+custom_fonts/font = SubResource( 1 )
+text = "oggetti"
+uppercase = true
+script = ExtResource( 9 )
+
+[node name="Functions" type="Label" parent="ColorRectShop/MarginContainer/VBoxContainerM/MenuEntries" groups=[
+"ShopMenuOptions",
+]]
+margin_top = 35.0
+margin_right = 475.0
+margin_bottom = 66.0
+custom_fonts/font = SubResource( 1 )
+text = "crea funzione            prezzo: 50"
+uppercase = true
+script = ExtResource( 8 )
+
+[node name="HealthPotion" type="Label" parent="ColorRectShop/MarginContainer/VBoxContainerM/MenuEntries" groups=[
+"Items",
+]]
+visible = false
+margin_top = 70.0
+margin_right = 479.0
+margin_bottom = 101.0
+custom_fonts/font = SubResource( 1 )
+text = "Pozione curativa      PREZZO: 15"
+uppercase = true
+script = ExtResource( 10 )
+
+[node name="Back" type="Label" parent="ColorRectShop/MarginContainer/VBoxContainerM/MenuEntries" groups=[
+"Functions",
+"Items",
+]]
+visible = false
+margin_top = 70.0
+margin_right = 272.0
+margin_bottom = 101.0
+custom_fonts/font = SubResource( 1 )
+text = "indietro"
+uppercase = true
+script = ExtResource( 7 )
+
+[node name="Close" type="Label" parent="ColorRectShop/MarginContainer/VBoxContainerM/MenuEntries" groups=[
+"ShopMenuOptions",
+]]
+margin_top = 70.0
+margin_right = 475.0
+margin_bottom = 101.0
+custom_fonts/font = SubResource( 1 )
+text = "Chiudi"
+uppercase = true
+script = ExtResource( 6 )
+
+[node name="SelectCursor" type="Sprite" parent="ColorRectShop/MarginContainer/VBoxContainerM/MenuEntries"]
+position = Vector2( -22, 14 )
+scale = Vector2( 1.13396, 1 )
+texture = ExtResource( 5 )
+script = ExtResource( 2 )
+
+[node name="menu_cursor_sound" type="AudioStreamPlayer" parent="ColorRectShop/MarginContainer/VBoxContainerM/MenuEntries/SelectCursor"]
+stream = ExtResource( 3 )
+volume_db = -30.0
+
+[node name="option_confirm_sound" type="AudioStreamPlayer" parent="ColorRectShop/MarginContainer/VBoxContainerM/MenuEntries/SelectCursor"]
+stream = ExtResource( 4 )
+volume_db = -13.0
+
+[node name="ColorRectFunctions" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.105882, 0.101961, 0.101961, 1 )
+script = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="ColorRectFunctions"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 152.0
+margin_top = 160.0
+margin_right = 392.0
+margin_bottom = 456.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainerM" type="Control" parent="ColorRectFunctions/ScrollContainer"]
+margin_right = 321.0
+margin_bottom = 1125.0
+rect_min_size = Vector2( 321, 1125 )
+
+[node name="MenuEntries" type="Control" parent="ColorRectFunctions/ScrollContainer/VBoxContainerM"]
+margin_right = 321.0
+margin_bottom = 297.0
+rect_min_size = Vector2( 321, 1125 )
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SelectCursor" type="Sprite" parent="ColorRectFunctions/ScrollContainer/VBoxContainerM/MenuEntries"]
+visible = false
+position = Vector2( -24, 200 )
+scale = Vector2( 1.13396, 1 )
+texture = ExtResource( 5 )
+script = ExtResource( 12 )
+
+[node name="menu_cursor_sound" type="AudioStreamPlayer" parent="ColorRectFunctions/ScrollContainer/VBoxContainerM/MenuEntries/SelectCursor"]
+stream = ExtResource( 3 )
+volume_db = -30.0
+
+[node name="option_confirm_sound" type="AudioStreamPlayer" parent="ColorRectFunctions/ScrollContainer/VBoxContainerM/MenuEntries/SelectCursor"]
+stream = ExtResource( 4 )
+volume_db = -13.0
+
+[node name="NotEnoughMoneyDialog" type="AcceptDialog" parent="."]
+margin_left = 488.0
+margin_top = 280.0
+margin_right = 664.0
+margin_bottom = 355.0
+popup_exclusive = true
+window_title = "Monete insufficienti"
+dialog_text = "Non hai abbastanza monete!"
+dialog_autowrap = true
+
+[node name="CodeHistory" type="PanelContainer" parent="."]
+visible = false
+margin_left = 408.0
+margin_top = 208.0
+margin_right = 624.0
+margin_bottom = 392.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CodeHistory"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 209.0
+margin_bottom = 177.0
+
+[node name="Name" type="LineEdit" parent="."]
+visible = false
+margin_left = 456.0
+margin_top = 168.0
+margin_right = 585.0
+margin_bottom = 199.0
+custom_fonts/font = SubResource( 2 )
+placeholder_text = "Nome"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Confirm" type="Button" parent="."]
+visible = false
+margin_left = 464.0
+margin_top = 408.0
+margin_right = 570.0
+margin_bottom = 435.0
+custom_fonts/font = SubResource( 3 )
+text = "Conferma"
+script = ExtResource( 14 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="visibility_changed" from="ColorRectShop/MarginContainer/VBoxContainerM/MenuEntries/Close" to="ColorRectShop/MarginContainer/VBoxContainerM/MenuEntries/SelectCursor" method="_on_Close_visibility_changed"]
+[connection signal="text_changed" from="Name" to="Confirm" method="_on_Name_text_changed"]
+[connection signal="pressed" from="Confirm" to="Confirm" method="_on_Confirm_pressed"]

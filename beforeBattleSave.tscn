@@ -1,0 +1,227 @@
+[gd_scene load_steps=33 format=2]
+
+[ext_resource path="res://Assets/TileMaps/Cave/cave_tileset.res" type="TileSet" id=1]
+[ext_resource path="res://Assets/Characters/Male/walk_down_boy_dx.png.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Characters/Male/walk_down_boy_sx.png.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Characters/Male/walk_up_boy_sx.png.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Characters/Male/stand_down_boy.png.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Characters/Male/walk_left_boy_dx.png.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Characters/Male/stand_up_boy.png.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Characters/Male/stand_left_boy.png.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Characters/Male/walk_up_boy_dx.png.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Characters/Male/walk_left_boy_sx.png.png" type="Texture" id=10]
+[ext_resource path="res://Scripts/Character/SetStartAnimation.gd" type="Script" id=11]
+[ext_resource path="res://Scripts/Cave/StartIntro.gd" type="Script" id=12]
+[ext_resource path="res://addons/blocking_dialog_box/blocking_dialog_box.gd" type="Script" id=13]
+[ext_resource path="res://Scripts/Cave/HideTutorialCloseButton.gd" type="Script" id=14]
+[ext_resource path="res://Assets/Characters/Female/walk_down_girl_sx.png.png" type="Texture" id=15]
+[ext_resource path="res://Assets/Characters/Female/walk_left_girl_sx.png.png" type="Texture" id=16]
+[ext_resource path="res://Assets/Characters/Female/walk_up_girl_dx.png.png" type="Texture" id=17]
+[ext_resource path="res://Assets/Characters/Female/walk_up_girl_sx.png.png" type="Texture" id=18]
+[ext_resource path="res://Assets/TabletMenu.png" type="Texture" id=19]
+[ext_resource path="res://Assets/Characters/Female/walk_down_girl_dx.png.png" type="Texture" id=20]
+[ext_resource path="res://Assets/Characters/Female/stand_down_girl.png.png" type="Texture" id=21]
+[ext_resource path="res://Assets/Characters/Female/stand_left_girl.png.png" type="Texture" id=22]
+[ext_resource path="res://Assets/Characters/Female/walk_left_girl_dx.png.png" type="Texture" id=23]
+[ext_resource path="res://Assets/Characters/Female/stand_up_girl.png.png" type="Texture" id=24]
+[ext_resource path="res://Audio/Musics/starting_cave_bg.ogg" type="AudioStream" id=25]
+[ext_resource path="res://addons/blocking_dialog_box/dialog_frame.png" type="Texture" id=26]
+[ext_resource path="res://addons/blocking_dialog_box/NotoSansCJKsc-Regular.tres" type="DynamicFont" id=27]
+[ext_resource path="res://Scripts/Cave/Cave_Exit.gd" type="Script" id=28]
+[ext_resource path="res://Scripts/PauseMenu/TogglePauseMenu.gd" type="Script" id=29]
+[ext_resource path="res://Scripts/Character/Player.gd" type="Script" id=30]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 61, 37 )
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 15 ), ExtResource( 21 ), ExtResource( 20 ), ExtResource( 21 ) ],
+"loop": true,
+"name": "female_walk_down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "male_stand_down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 24 ) ],
+"loop": true,
+"name": "female_stand_up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 22 ) ],
+"loop": true,
+"name": "female_stand_left",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "male_stand_up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "male_stand_left",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 23 ), ExtResource( 22 ), ExtResource( 16 ), ExtResource( 22 ) ],
+"loop": true,
+"name": "female_walk_left",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 17 ), ExtResource( 24 ), ExtResource( 18 ), ExtResource( 24 ) ],
+"loop": true,
+"name": "female_walk_up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ), ExtResource( 8 ), ExtResource( 6 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "male_walk_left",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 21 ) ],
+"loop": true,
+"name": "female_stand_down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 5 ), ExtResource( 2 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "male_walk_down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 7 ), ExtResource( 9 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "male_walk_up",
+"speed": 5.0
+} ]
+
+[node name="Starting_Cave" type="Node2D"]
+position = Vector2( 1, 0 )
+script = ExtResource( 29 )
+
+[node name="background_music" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
+stream = ExtResource( 25 )
+volume_db = -25.0
+autoplay = true
+
+[node name="BlockingDialogBox" type="CanvasLayer" parent="."]
+script = ExtResource( 13 )
+texture = ExtResource( 26 )
+font = ExtResource( 27 )
+patch_size = 12
+padding = 6
+height = 128
+
+[node name="TileMap_Cave" type="TileMap" parent="."]
+position = Vector2( -286.248, -320.984 )
+scale = Vector2( 4, 4 )
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 327684, 91, 0, 327685, 91, 0, 327686, 20, 0, 327687, 2, 0, 327688, 1, 0, 327689, 2, 0, 327690, 1, 0, 327691, 2, 0, 327692, 1, 0, 327693, 2, 0, 327694, 1, 0, 327695, 1, 0, 327696, 2, 0, 327697, 1, 0, 327698, 23, 0, 327699, 91, 0, 327700, 91, 0, 327701, 91, 0, 327702, 91, 0, 327703, 91, 0, 393220, 91, 0, 393221, 26, 0, 393222, 21, 0, 393223, 31, 0, 393224, 19, 0, 393225, 31, 0, 393226, 82, 0, 393227, 83, 0, 393228, 84, 0, 393229, 31, 0, 393230, 19, 0, 393231, 31, 0, 393232, 19, 0, 393233, 31, 0, 393234, 27, 0, 393235, 0, 0, 393236, 0, 0, 393237, 23, 0, 393238, 91, 0, 393239, 91, 0, 458756, 91, 0, 458757, 20, 0, 458758, 30, 0, 458759, 16, 0, 458760, 17, 0, 458761, 16, 0, 458762, 85, 0, 458763, 86, 0, 458764, 87, 0, 458765, 16, 0, 458766, 16, 0, 458767, 17, 0, 458768, 16, 0, 458769, 17, 0, 458770, 28, 0, 458771, 31, 0, 458772, 31, 0, 458773, 27, 0, 458774, 23, 0, 458775, 91, 0, 524292, 20, 0, 524293, 30, 0, 524294, 536870940, 0, 524295, 11, 0, 524296, 10, 0, 524297, 11, 0, 524298, 90, 0, 524299, 89, 0, 524300, 88, 0, 524301, 11, 0, 524302, 11, 0, 524303, 11, 0, 524304, 37, 0, 524305, 37, 0, 524306, 29, 0, 524307, 16, 0, 524308, 16, 0, 524309, 31, 0, 524310, 25, 0, 524311, 91, 0, 589828, 21, 0, 589829, 19, 0, 589830, 32, 0, 589831, 11, 0, 589832, 81, 0, 589833, 11, 0, 589834, 11, 0, 589835, 11, 0, 589836, 11, 0, 589837, 11, 0, 589838, 11, 0, 589839, 11, 0, 589840, 13, 0, 589841, 37, 0, 589842, 37, 0, 589843, 37, 0, 589844, 37, 0, 589845, 29, 0, 589846, 24, 0, 589847, 91, 0, 655364, 22, 0, 655365, 32, 0, 655366, 37, 0, 655367, 11, 0, 655368, 11, 0, 655369, 11, 0, 655370, 11, 0, 655371, 10, 0, 655372, 11, 0, 655373, 11, 0, 655374, 11, 0, 655375, 11, 0, 655376, 11, 0, 655377, 37, 0, 655378, 11, 0, 655379, 11, 0, 655380, 45, 0, 655381, 40, 0, 655382, 42, 0, 655383, 91, 0, 720900, 21, 0, 720901, 10, 0, 720902, 37, 0, 720903, 37, 0, 720904, 11, 0, 720905, 11, 0, 720906, 11, 0, 720907, 11, 0, 720908, 11, 0, 720909, 11, 0, 720910, 11, 0, 720911, 11, 0, 720912, 11, 0, 720913, 10, 0, 720914, 11, 0, 720915, 11, 0, 720916, 46, 0, 720917, 91, 0, 720918, 91, 0, 720919, 91, 0, 786436, 36, 0, 786437, 37, 0, 786438, 37, 0, 786439, 10, 0, 786440, 11, 0, 786441, 11, 0, 786442, 11, 0, 786443, 10, 0, 786444, 11, 0, 786445, 13, 0, 786446, 11, 0, 786447, 11, 0, 786448, 37, 0, 786449, 10, 0, 786450, 45, 0, 786451, 40, 0, 786452, 42, 0, 786453, 33, 0, 786454, 34, 0, 786455, 34, 0, 851972, 36, 0, 851973, 37, 0, 851974, 37, 0, 851975, 10, 0, 851976, 10, 0, 851977, 10, 0, 851978, 10, 0, 851979, 10, 0, 851980, 10, 0, 851981, 10, 0, 851982, 11, 0, 851983, 10, 0, 851984, 10, 0, 851985, 10, 0, 851986, 38, 0, 851987, 91, 0, 851988, 33, 0, 851989, 41, 0, 851990, 37, 0, 851991, 37, 0, 917508, 36, 0, 917509, 37, 0, 917510, 37, 0, 917511, 10, 0, 917512, 12, 0, 917513, 10, 0, 917514, 11, 0, 917515, 10, 0, 917516, 10, 0, 917517, 10, 0, 917518, 10, 0, 917519, 11, 0, 917520, 10, 0, 917521, 45, 0, 917522, 42, 0, 917523, 91, 0, 917524, 36, 0, 917525, 37, 0, 917526, 37, 0, 917527, 37, 0, 983044, 39, 0, 983045, 40, 0, 983046, 40, 0, 983047, 40, 0, 983048, 40, 0, 983049, 40, 0, 983050, 40, 0, 983051, 40, 0, 983052, 40, 0, 983053, 40, 0, 983054, 40, 0, 983055, 40, 0, 983056, 40, 0, 983057, 42, 0, 983058, 91, 0, 983059, 91, 0, 983060, 41, 0, 983061, 37, 0, 983062, 37, 0, 983063, 37, 0 )
+script = ExtResource( 12 )
+
+[node name="Cave_Exit" type="Area2D" parent="TileMap_Cave"]
+position = Vector2( 71.562, 80.246 )
+scale = Vector2( 0.25, 0.25 )
+script = ExtResource( 28 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap_Cave/Cave_Exit"]
+position = Vector2( 457, 138 )
+shape = SubResource( 1 )
+
+[node name="Player" type="KinematicBody2D" parent="."]
+position = Vector2( 430, 410 )
+script = ExtResource( 30 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Player"]
+position = Vector2( 4.43771, -2.55772 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 2 )
+animation = "male_stand_down"
+script = ExtResource( 11 )
+
+[node name="PauseMenu" type="Control" parent="Player"]
+pause_mode = 2
+visible = false
+margin_left = -638.925
+margin_top = -83.9501
+margin_right = -598.925
+margin_bottom = -43.9501
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="TextureRect" parent="Player/PauseMenu"]
+margin_left = 458.0
+margin_top = -67.0
+margin_right = 811.0
+margin_bottom = 205.0
+texture = ExtResource( 19 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Player/PauseMenu/ColorRect"]
+margin_left = -34.0
+margin_top = -133.0
+margin_right = 286.0
+margin_bottom = 115.0
+rect_scale = Vector2( 0.8, 0.8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Player"]
+position = Vector2( 4.61102, 22.4473 )
+scale = Vector2( 0.920202, 0.528495 )
+polygon = PoolVector2Array( -10.9231, -12.3534, -10.9231, -18.2526, 10.55, -16.6008, 17.8651, -5.98222, 12.4377, 0.624908, 11.0219, 11.7154, -10.4512, 12.1874, -16.1144, -3.62253, -16.5864, -11.6455, -11.1591, -18.7245 )
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2( 4.43768, -2.55774 )
+scale = Vector2( 4, 4 )
+current = true
+process_mode = 0
+limit_left = -20
+limit_top = 0
+limit_right = 1250
+limit_bottom = 700
+
+[node name="RayCast2D" type="RayCast2D" parent="Player"]
+enabled = true
+
+[node name="Tablet" type="Sprite" parent="."]
+position = Vector2( 356, 379 )
+rotation = 1.5708
+scale = Vector2( 0.13, 0.13 )
+texture = ExtResource( 19 )
+region_rect = Rect2( 0, 0, 350, 270 )
+
+[node name="TutorialDialog" type="AcceptDialog" parent="."]
+pause_mode = 2
+margin_left = 337.0
+margin_top = 126.0
+margin_right = 687.0
+margin_bottom = 473.0
+popup_exclusive = true
+window_title = "Nuova notifica: Tutorial #1"
+dialog_text = "Per risolvere il bug e quindi sconfiggere il nemico il valore del tuo Attacco (ATT) dovrà essere uguale al numero di Punti Vita (PV) del nemico.
+
+Per farlo dovrai manipolare la \"variabile\" ATT (che ha come valore iniziale 2) attraverso i comandi proposti. Una variabile è come un contenitore di informazioni, come per esempio lettere, parole, valori binari come “vero” e “falso” e, come in questo caso, numeri. Una variabile può essere usata al posto del suo valore, per esempio le variabili numeriche possono essere usate in vere e proprie espressioni matematiche!
+
+Se il risultato è errato il nemico attaccherà, facendo scendere i tuoi PV in base al valore di ATT del nemico, se scendono a 0 hai perso e dovrai ricominciare dall'ultimo salvataggio. Buona fortuna!"
+dialog_autowrap = true
+script = ExtResource( 14 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="ready" from="." to="TileMap_Cave" method="_on_Starting_Cave_ready"]
+[connection signal="about_to_show" from="TutorialDialog" to="TutorialDialog" method="_on_TutorialDialog_about_to_show"]
+[connection signal="confirmed" from="TutorialDialog" to="TileMap_Cave" method="_on_TutorialDialog_confirmed"]
